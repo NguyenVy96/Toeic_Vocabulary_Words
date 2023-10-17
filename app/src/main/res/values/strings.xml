@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Toeic Vocabulary Words</string>
+    <string name="topic_img_description">illustration</string>
+    <string name="setting">Setting</string>
+    <string name="account">Account</string>
+    <string name="change_avatar">Change avatar</string>
+    <string name="rename">Rename</string>
+    <string name="topic">Topic</string>
+    <string name="vocabulary">Vocabulary</string>
+    <string name="open_navi_drawer">View you profile and setting</string>
+    <string name="close_navi_drawer">Close you profile and setting</string>
+    <string name="default_user_name">Default user name</string>
+    <string name="learned_topic">Learned topic</string>
+    <string name="topic_passed">Topic passed</string>
+
 </resources>

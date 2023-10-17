@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="topic_item_layout_transparent_padding_start">10dp</dimen>
+    <dimen name="topic_item_layout_transparent_padding_top">5dp</dimen>
+    <dimen name="topic_item_layout_conor">20dp</dimen>
+    <dimen name="topic_item_layout_padding">5dp</dimen>
+    <dimen name="topic_item_pgb_height">10dp</dimen>
+    <dimen name="topic_item_tv_score_padding_end">5dp</dimen>
+    <dimen name="rcv_topic_layout_padding_top">5dp</dimen>
+    <dimen name="toolbar_height">45dp</dimen>
+    <dimen name="toolbar_elevation">5dp</dimen>
+    <dimen name="avatar_size">100dp</dimen>
+    <dimen name="header_navi_drawer_item_margin_bottom">5dp</dimen>
+    <dimen name="header_navi_drawer_layout_padding">30dp</dimen>
+</resources>

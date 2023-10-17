@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="@drawable/ic_header_navi"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/header_navi_drawer_layout_padding"
+    android:paddingStart="30dp"
+    tools:ignore="RtlSymmetry">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_avatar"
+        android:layout_width="@dimen/avatar_size"
+        android:layout_height="@dimen/avatar_size"
+        android:layout_marginBottom="@dimen/header_navi_drawer_item_margin_bottom"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_contract" />
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/header_navi_drawer_item_margin_bottom"
+        android:text="@string/default_user_name"
+        android:textColor="@color/header_text_color" />
+
+    <TextView
+        android:id="@+id/tv_learned_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/header_navi_drawer_item_margin_bottom"
+        android:text="@string/learned_topic"
+        android:textColor="@color/header_text_color" />
+
+</LinearLayout>
