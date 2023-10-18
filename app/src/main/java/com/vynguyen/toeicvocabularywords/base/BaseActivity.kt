@@ -35,6 +35,4 @@ open class BaseActivity : AppCompatActivity() {
         toggle.syncState()
     }
 
-
-
 }

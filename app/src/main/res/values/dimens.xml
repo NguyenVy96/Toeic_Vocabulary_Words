@@ -12,4 +12,6 @@
     <dimen name="avatar_size">100dp</dimen>
     <dimen name="header_navi_drawer_item_margin_bottom">5dp</dimen>
     <dimen name="header_navi_drawer_layout_padding">30dp</dimen>
+    <dimen name="normal_content_text_size">13sp</dimen>
+    <dimen name="main_title_text_size">15sp</dimen>
 </resources>

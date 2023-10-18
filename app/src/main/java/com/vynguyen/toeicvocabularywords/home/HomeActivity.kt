@@ -1,16 +1,17 @@
 package com.vynguyen.toeicvocabularywords.home
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import com.vynguyen.toeicvocabularywords.R
 import com.vynguyen.toeicvocabularywords.base.BaseActivity
+import com.vynguyen.toeicvocabularywords.constant.IntentConstant
+import com.vynguyen.toeicvocabularywords.constant.Constant
 import com.vynguyen.toeicvocabularywords.data.TopicData
 import com.vynguyen.toeicvocabularywords.databinding.ActivityHomeBinding
 import com.vynguyen.toeicvocabularywords.topic.Topic
@@ -63,11 +64,10 @@ class HomeActivity : BaseActivity(), TopicItemClickListener, NavigationView.OnNa
         }
     }
 
-    override fun onClick(topic: Topic) {
-        // TODO: Open detail topic
-
-        Toast.makeText(this, "CLicked " + topic.name, Toast.LENGTH_SHORT).show()
-        Log.d("ZZZ", "Clicked " + topic.name)
+    override fun onTopicItemClick(topic: Topic) {
+        val intent = Intent(IntentConstant.LEARN_ACTIVITY)
+        intent.putExtra(Constant.TOPIC_KEY, topic.id)
+        startActivity(intent)
     }
 
     override fun onDestroy() {

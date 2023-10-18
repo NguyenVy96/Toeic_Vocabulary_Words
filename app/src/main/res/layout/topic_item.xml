@@ -37,6 +37,7 @@
 
             <TextView
                 android:id="@+id/tv_topic_name"
+                style="@style/bold_content_text_style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primary_color"
@@ -46,6 +47,7 @@
 
             <TextView
                 android:id="@+id/tv_vocabulary_number"
+                style="@style/normal_content_text_style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toTopOf="@+id/tv_score"
@@ -54,6 +56,7 @@
 
             <TextView
                 android:id="@+id/tv_score"
+                style="@style/normal_content_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingEnd="@dimen/topic_item_tv_score_padding_end"

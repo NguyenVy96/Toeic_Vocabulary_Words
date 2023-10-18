@@ -3,4 +3,5 @@
     <color name="default_bg_color">@color/black</color>
     <color name="topic_item_color">#2B2A2A</color>
     <color name="svg_icon_color">@color/white</color>
+    <color name="normal_content_text_color">@color/white</color>
 </resources>

@@ -12,5 +12,8 @@
     <string name="default_user_name">Default user name</string>
     <string name="learned_topic">Learned topic</string>
     <string name="topic_passed">Topic passed</string>
+    <string name="learn">Learn</string>
+    <string name="test">Test</string>
+    <string name="game">Game</string>
 
 </resources>

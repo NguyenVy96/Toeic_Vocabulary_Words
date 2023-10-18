@@ -8,4 +8,6 @@
     <color name="toolbar_color">@color/primary_color</color>
     <color name="svg_icon_color">@color/black</color>
     <color name="header_text_color">@color/white</color>
+    <color name="yellow">#F1DA14</color>
+    <color name="normal_content_text_color">@color/black</color>
 </resources>

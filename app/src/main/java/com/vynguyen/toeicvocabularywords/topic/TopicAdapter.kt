@@ -68,7 +68,7 @@ class TopicAdapter(
         holder.tvScore.text = topic.score.toString() + "%"
         holder.pgbScore.progress = topic.score
         holder.itemLayout.setOnClickListener {
-            itemClickListener.get()?.onClick(topic)
+            itemClickListener.get()?.onTopicItemClick(topic)
 
             val drawableOn = res.getDrawable(R.drawable.item_on, null)
             val drawableOff = res.getDrawable(R.drawable.item_off, null)

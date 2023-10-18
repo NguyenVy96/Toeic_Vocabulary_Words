@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="naviCustom">
-        <item name="android:textColor">@color/toolbar_color</item>
+    <style name="ToolbarColor" parent="Theme.ToeicVocabularyWords">
+        <!-- set toolbar icon color -->
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="normal_content_text_style">
+        <item name="android:textColor">@color/normal_content_text_color</item>
+        <item name="android:textSize">@dimen/normal_content_text_size</item>
+    </style>
+
+    <style name="bold_content_text_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/main_title_text_size</item>
     </style>
 
 </resources>

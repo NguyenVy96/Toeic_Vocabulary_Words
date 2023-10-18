@@ -12,12 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToeicVocabularyWords"
         tools:targetApi="31">
+
+        <activity
+            android:name=".learn.LearnActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.classicman.action.LEARN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".home.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.classicman.action.HOME" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
