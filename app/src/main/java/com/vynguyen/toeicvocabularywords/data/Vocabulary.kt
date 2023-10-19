@@ -1,4 +1,4 @@
-package com.vynguyen.toeicvocabularywords.vocabulary
+package com.vynguyen.toeicvocabularywords.data
 
 data class Vocabulary(
     val imgResource: Int,

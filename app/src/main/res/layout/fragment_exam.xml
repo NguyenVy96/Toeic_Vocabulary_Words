@@ -4,6 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F44336"
-    tools:context=".exam.ExamFragment">
+    tools:context=".fragment.ExamFragment">
 
 </FrameLayout>

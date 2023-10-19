@@ -13,7 +13,9 @@
     <string name="learned_topic">Learned topic</string>
     <string name="topic_passed">Topic passed</string>
     <string name="learn">Learn</string>
-    <string name="test">Test</string>
+    <string name="write">Write</string>
+    <string name="speak">Speak</string>
+    <string name="exam">Exam</string>
     <string name="game">Game</string>
 
 </resources>

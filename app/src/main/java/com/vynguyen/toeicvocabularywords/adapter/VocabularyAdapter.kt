@@ -1,4 +1,4 @@
-package com.vynguyen.toeicvocabularywords.vocabulary
+package com.vynguyen.toeicvocabularywords.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -12,8 +12,10 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.vynguyen.toeicvocabularywords.R
+import com.vynguyen.toeicvocabularywords.interfa.VocabularyItemClickListener
 import com.vynguyen.toeicvocabularywords.utils.ColorHelper
 import com.vynguyen.toeicvocabularywords.utils.Words
+import com.vynguyen.toeicvocabularywords.data.Vocabulary
 import java.lang.ref.WeakReference
 
 class VocabularyAdapter(private var context: Context, private val dataList: List<Vocabulary>?) :

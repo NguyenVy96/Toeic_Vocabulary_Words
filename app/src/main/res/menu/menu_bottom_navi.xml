@@ -5,9 +5,17 @@
         android:icon="@drawable/ic_menu_learn"
         android:title="@string/learn"/>
 
+    <item android:id="@+id/menu_write"
+        android:icon="@drawable/ic_menu_edit"
+        android:title="@string/learn"/>
+
+    <item android:id="@+id/menu_speak"
+        android:icon="@drawable/ic_menu_voice"
+        android:title="@string/learn"/>
+
     <item android:id="@+id/menu_exam"
         android:icon="@drawable/ic_menu_exam"
-        android:title="@string/test"/>
+        android:title="@string/exam"/>
 
     <item android:id="@+id/menu_game"
         android:icon="@drawable/ic_menu_game"

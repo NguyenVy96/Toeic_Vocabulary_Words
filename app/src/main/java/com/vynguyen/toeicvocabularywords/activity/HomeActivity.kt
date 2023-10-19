@@ -1,4 +1,4 @@
-package com.vynguyen.toeicvocabularywords.home
+package com.vynguyen.toeicvocabularywords.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,9 +14,9 @@ import com.vynguyen.toeicvocabularywords.constant.IntentConstant
 import com.vynguyen.toeicvocabularywords.constant.Constant
 import com.vynguyen.toeicvocabularywords.data.TopicData
 import com.vynguyen.toeicvocabularywords.databinding.ActivityHomeBinding
-import com.vynguyen.toeicvocabularywords.topic.Topic
-import com.vynguyen.toeicvocabularywords.topic.TopicAdapter
-import com.vynguyen.toeicvocabularywords.topic.TopicItemClickListener
+import com.vynguyen.toeicvocabularywords.data.Topic
+import com.vynguyen.toeicvocabularywords.adapter.TopicAdapter
+import com.vynguyen.toeicvocabularywords.interfa.TopicItemClickListener
 
 
 class HomeActivity : BaseActivity(), TopicItemClickListener, NavigationView.OnNavigationItemSelectedListener {

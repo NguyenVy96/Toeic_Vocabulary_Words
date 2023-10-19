@@ -1,4 +1,4 @@
-package com.vynguyen.toeicvocabularywords.topic
+package com.vynguyen.toeicvocabularywords.data
 
 data class Topic(
     val id: Int,

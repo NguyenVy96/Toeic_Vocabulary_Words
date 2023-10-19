@@ -2,7 +2,6 @@ package com.vynguyen.toeicvocabularywords.data
 
 import com.vynguyen.toeicvocabularywords.R
 import com.vynguyen.toeicvocabularywords.utils.Words
-import com.vynguyen.toeicvocabularywords.vocabulary.Vocabulary
 
 object VocabularyData {
 

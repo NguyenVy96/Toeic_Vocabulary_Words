@@ -1,4 +1,4 @@
-package com.vynguyen.toeicvocabularywords.learn
+package com.vynguyen.toeicvocabularywords.fragment
 
 import android.content.Context
 import android.media.MediaPlayer
@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vynguyen.toeicvocabularywords.R
 import com.vynguyen.toeicvocabularywords.data.TopicData
 import com.vynguyen.toeicvocabularywords.data.VocabularyData
-import com.vynguyen.toeicvocabularywords.vocabulary.Vocabulary
-import com.vynguyen.toeicvocabularywords.vocabulary.VocabularyAdapter
-import com.vynguyen.toeicvocabularywords.vocabulary.VocabularyItemClickListener
+import com.vynguyen.toeicvocabularywords.data.Vocabulary
+import com.vynguyen.toeicvocabularywords.adapter.VocabularyAdapter
+import com.vynguyen.toeicvocabularywords.interfa.VocabularyItemClickListener
 
 
 class LearnFragment : Fragment(), VocabularyItemClickListener {

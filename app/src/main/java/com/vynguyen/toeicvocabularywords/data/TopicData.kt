@@ -2,7 +2,6 @@ package com.vynguyen.toeicvocabularywords.data
 
 
 import com.vynguyen.toeicvocabularywords.R
-import com.vynguyen.toeicvocabularywords.topic.Topic
 
 object TopicData {
 
