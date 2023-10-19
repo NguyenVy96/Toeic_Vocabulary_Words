@@ -67,6 +67,7 @@ class HomeActivity : BaseActivity(), TopicItemClickListener, NavigationView.OnNa
     override fun onTopicItemClick(topic: Topic) {
         val intent = Intent(IntentConstant.LEARN_ACTIVITY)
         intent.putExtra(Constant.TOPIC_KEY, topic.id)
+        TopicData.setLearningTopic(topic.id)
         startActivity(intent)
     }
 
@@ -77,6 +78,7 @@ class HomeActivity : BaseActivity(), TopicItemClickListener, NavigationView.OnNa
     
     private fun clearData() {
         topicListData = null
+        topicAdapter?.onDestroy()
         topicAdapter = null
     }
 }

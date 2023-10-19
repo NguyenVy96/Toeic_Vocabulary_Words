@@ -22,8 +22,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/bottom_navi_container"
+            android:layout_height="match_parent"
             android:layout_below="@+id/toolbar_container">
 
         </androidx.viewpager2.widget.ViewPager2>
@@ -36,8 +35,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginBottom="20dp" />
-
+            android:layout_marginBottom="15dp" />
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView

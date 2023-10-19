@@ -14,4 +14,5 @@
     <dimen name="header_navi_drawer_layout_padding">30dp</dimen>
     <dimen name="normal_content_text_size">13sp</dimen>
     <dimen name="main_title_text_size">15sp</dimen>
+    <dimen name="last_vocabulary_item_bottom_margin">55sp</dimen>
 </resources>

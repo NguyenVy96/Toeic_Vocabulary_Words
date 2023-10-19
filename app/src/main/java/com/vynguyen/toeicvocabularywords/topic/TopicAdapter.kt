@@ -2,6 +2,7 @@ package com.vynguyen.toeicvocabularywords.topic
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,8 @@ class TopicAdapter(
     RecyclerView.Adapter<TopicAdapter.TopicViewHolder>() {
 
     private var itemClickListener = WeakReference<TopicItemClickListener>(null)
+    private var drawableOn: Drawable? = null
+    private var drawableOff: Drawable? = null
 
     class TopicViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val itemLayout: ConstraintLayout
@@ -41,8 +44,13 @@ class TopicAdapter(
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopicViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.topic_item, parent, false)
+        val res = context.resources
+        drawableOn = res.getDrawable(R.drawable.item_on, null)
+        drawableOff = res.getDrawable(R.drawable.item_off, null)
+
         return TopicViewHolder(view)
     }
 
@@ -55,7 +63,7 @@ class TopicAdapter(
 
     @SuppressLint("UseCompatLoadingForDrawables", "SetTextI18n")
     override fun onBindViewHolder(holder: TopicViewHolder, position: Int) {
-        if (listData == null) {
+        if (listData.isNullOrEmpty()) {
             return
         }
 
@@ -69,14 +77,16 @@ class TopicAdapter(
         holder.pgbScore.progress = topic.score
         holder.itemLayout.setOnClickListener {
             itemClickListener.get()?.onTopicItemClick(topic)
-
-            val drawableOn = res.getDrawable(R.drawable.item_on, null)
-            val drawableOff = res.getDrawable(R.drawable.item_off, null)
-            ColorHelper.changeColorItemClick(it, drawableOn, drawableOff)
+            ColorHelper.changeColorItemClick(it, drawableOn!!, drawableOff!!)
         }
     }
 
     fun addItemCLickListener(listener: TopicItemClickListener) {
         itemClickListener = WeakReference(listener)
+    }
+
+    fun onDestroy() {
+        drawableOn = null
+        drawableOff = null
     }
 }

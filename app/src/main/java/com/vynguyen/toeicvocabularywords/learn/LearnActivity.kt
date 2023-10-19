@@ -43,6 +43,8 @@ class LearnActivity : BaseActivity() {
 
                     Constant.GAME_FRAGMENT ->
                         bottomNavi.menu.findItem(R.id.menu_game).isChecked = true
+
+                    else -> bottomNavi.menu.findItem(R.id.menu_learn).isChecked = true
                 }
             }
         })
