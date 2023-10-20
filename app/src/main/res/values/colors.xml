@@ -10,4 +10,6 @@
     <color name="header_text_color">@color/white</color>
     <color name="yellow">#F1DA14</color>
     <color name="normal_content_text_color">@color/black</color>
+    <color name="edt_text_color">@color/black</color>
+
 </resources>

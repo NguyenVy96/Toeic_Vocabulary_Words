@@ -15,4 +15,13 @@
     <dimen name="normal_content_text_size">13sp</dimen>
     <dimen name="main_title_text_size">15sp</dimen>
     <dimen name="last_vocabulary_item_bottom_margin">55sp</dimen>
+    <dimen name="fragment_write_item_margin_top">20dp</dimen>
+    <dimen name="practice_text_size">20sp</dimen>
+    <dimen name="fragment_write_layout_padding_top">50dp</dimen>
+    <dimen name="practice_result_img_size">100dp</dimen>
+    <dimen name="practice_sound_icon_size">35dp</dimen>
+    <dimen name="practice_btn_text_size">18sp</dimen>
+    <dimen name="practice_edt_height">35dp</dimen>
+    <dimen name="practice_edt_margin_side">30dp</dimen>
+    <dimen name="practice_btn_padding_side">20dp</dimen>
 </resources>

@@ -15,7 +15,8 @@
 
         <activity
             android:name=".activity.LearnActivity"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="com.classicman.action.LEARN" />
                 <category android:name="android.intent.category.DEFAULT" />

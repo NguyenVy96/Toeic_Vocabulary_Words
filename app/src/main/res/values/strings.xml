@@ -17,5 +17,9 @@
     <string name="speak">Speak</string>
     <string name="exam">Exam</string>
     <string name="game">Game</string>
+    <string name="submit">Submit</string>
+    <string name="next">Next</string>
+    <string name="speaker">Speaker</string>
+    <string name="pls_enter_text">Please enter text</string>
 
 </resources>

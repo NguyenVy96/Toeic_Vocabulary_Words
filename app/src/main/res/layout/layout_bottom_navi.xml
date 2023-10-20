@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/toolbar_height"
     android:id="@+id/bottom_navi"
-    android:background="@drawable/bottom_navi_shape"
+    android:background="@drawable/rounded_rectangle"
     android:elevation="@dimen/toolbar_elevation"
     app:itemIconSize="30dp"
     app:itemIconTint="@color/bottom_navi_item_color"
