@@ -21,5 +21,10 @@
     <string name="next">Next</string>
     <string name="speaker">Speaker</string>
     <string name="pls_enter_text">Please enter text</string>
+    <string name="cancel">Cancel</string>
+    <string name="update">Update</string>
+    <string name="pls_enter_your_name">Please enter your name</string>
+    <string name="rename_successfully">Rename successfully</string>
+    <string name="rename_user">Rename user</string>
 
 </resources>

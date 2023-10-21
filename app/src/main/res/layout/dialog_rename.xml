@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dialog_layout_margin_side"
+    android:layout_marginEnd="@dimen/dialog_layout_margin_side"
+    android:background="@drawable/rounded_rectangle_same_bg_20"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dialog_title_height"
+        android:background="@drawable/rounded_blue_rectangle_tl_tr_20"
+        android:gravity="center"
+        android:text="@string/rename_user"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dialog_title_text_size" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dialog_item_margin_side"
+        android:layout_marginTop="@dimen/dialog_item_margin_top"
+        android:layout_marginEnd="@dimen/dialog_item_margin_side">
+
+        <EditText
+            android:id="@+id/edt_rename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pls_enter_your_name" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dialog_item_margin_side"
+        android:paddingTop="@dimen/dialog_item_margin_top"
+        android:paddingEnd="@dimen/dialog_item_margin_side"
+        android:paddingBottom="@dimen/dialog_item_margin_top">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_blue_rectangle_20"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_blue_rectangle_20"
+            android:text="@string/update"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>

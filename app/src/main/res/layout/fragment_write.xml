@@ -25,20 +25,20 @@
         android:layout_marginTop="@dimen/fragment_write_item_margin_top">
 
         <TextView
-            android:layout_gravity="center"
             android:id="@+id/tv_mean"
             style="@style/normal_content_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Temp string"
             android:textSize="@dimen/practice_text_size"
             android:visibility="invisible" />
 
         <ImageView
-            android:layout_gravity="center"
             android:id="@+id/img_speaker"
             android:layout_width="@dimen/practice_sound_icon_size"
             android:layout_height="@dimen/practice_sound_icon_size"
+            android:layout_gravity="center"
             android:contentDescription="@string/speaker"
             android:src="@drawable/ic_speaker" />
 
@@ -46,34 +46,38 @@
 
     <TextView
         android:id="@+id/tv_answer"
-        android:textColor="@color/primary_color"
         style="@style/normal_content_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/fragment_write_item_margin_top"
         android:text="Temp string"
+        android:textColor="@color/primary_color"
         android:textSize="@dimen/practice_text_size"
         android:visibility="gone" />
 
-
-    <EditText
-        android:id="@+id/edt_write"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/practice_edt_height"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/practice_edt_margin_side"
         android:layout_marginTop="@dimen/fragment_write_item_margin_top"
         android:layout_marginEnd="@dimen/practice_edt_margin_side"
-        android:textColor="@color/edt_text_color"
-        android:background="@drawable/rounded_rectangle_contrast"
-        android:elevation="@dimen/toolbar_elevation"
-        android:textAlignment="center" />
+        android:elevation="@dimen/toolbar_elevation">
+
+        <EditText
+            android:id="@+id/edt_write"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/pls_enter_text"
+            android:textAlignment="center" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ToggleButton
         android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/fragment_write_item_margin_top"
-        android:background="@drawable/rounded_rectangle"
+        android:background="@drawable/rounded_blue_rectangle_20"
         android:elevation="@dimen/toolbar_elevation"
         android:paddingStart="@dimen/practice_btn_padding_side"
         android:paddingEnd="@dimen/practice_btn_padding_side"

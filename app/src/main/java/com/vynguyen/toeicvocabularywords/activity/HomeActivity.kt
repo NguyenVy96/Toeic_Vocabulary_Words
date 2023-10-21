@@ -4,22 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
-import android.view.MenuItem
-import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.navigation.NavigationView
 import com.vynguyen.toeicvocabularywords.R
+import com.vynguyen.toeicvocabularywords.adapter.TopicAdapter
 import com.vynguyen.toeicvocabularywords.base.BaseActivity
-import com.vynguyen.toeicvocabularywords.constant.IntentConstant
 import com.vynguyen.toeicvocabularywords.constant.Constant
+import com.vynguyen.toeicvocabularywords.constant.IntentConstant
+import com.vynguyen.toeicvocabularywords.data.Topic
 import com.vynguyen.toeicvocabularywords.data.TopicData
 import com.vynguyen.toeicvocabularywords.databinding.ActivityHomeBinding
-import com.vynguyen.toeicvocabularywords.data.Topic
-import com.vynguyen.toeicvocabularywords.adapter.TopicAdapter
 import com.vynguyen.toeicvocabularywords.interfa.TopicItemClickListener
 
 
-class HomeActivity : BaseActivity(), TopicItemClickListener, NavigationView.OnNavigationItemSelectedListener {
+class HomeActivity : BaseActivity(), TopicItemClickListener {
 
     private lateinit var viewBinding: ActivityHomeBinding
 
@@ -48,20 +45,6 @@ class HomeActivity : BaseActivity(), TopicItemClickListener, NavigationView.OnNa
         topicAdapter?.addItemCLickListener(this)
         viewBinding.rcvTopic.layoutManager = LinearLayoutManager(this)
         viewBinding.rcvTopic.adapter = topicAdapter
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // TODO: need implement function
-
-        return true
-    }
-
-    override fun onBackPressed() {
-        if (viewBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            viewBinding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
     }
 
     override fun onTopicItemClick(topic: Topic) {
