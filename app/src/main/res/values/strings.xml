@@ -26,5 +26,9 @@
     <string name="pls_enter_your_name">Please enter your name</string>
     <string name="rename_successfully">Rename successfully</string>
     <string name="rename_user">Rename user</string>
+    <string name="exit_game">Exit game</string>
+    <string name="exit_game_confirm">Do you want to exit the game?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 </resources>

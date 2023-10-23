@@ -6,13 +6,14 @@ import com.vynguyen.toeicvocabularywords.utils.Words
 object VocabularyData {
 
     private var dataList = HashMap<Int, List<Vocabulary>>()
+    private lateinit var defaultList: List<Vocabulary>
 
     init {
         createDataLesson0()
     }
 
     private fun createDataLesson0() {
-        val lesson = listOf<Vocabulary>(
+        defaultList = listOf<Vocabulary>(
             Vocabulary(
                 R.drawable.ic_abide_by,
                 R.raw.abide_by,
@@ -111,13 +112,13 @@ object VocabularyData {
             )
         )
 
-        dataList[0] = lesson
+        dataList[0] = defaultList
     }
 
-    fun getVocabularyData(lesson: Int): List<Vocabulary>? {
+    fun getVocabularyData(lesson: Int): List<Vocabulary> {
         val list = dataList[lesson]
         if (list.isNullOrEmpty()) {
-            return dataList[0]
+            return defaultList
         }
         return list
     }

@@ -12,24 +12,18 @@
         android:layout_height="@dimen/dialog_title_height"
         android:background="@drawable/rounded_blue_rectangle_tl_tr_20"
         android:gravity="center"
-        android:text="@string/rename_user"
+        android:text="@string/exit_game"
         android:textColor="@color/white"
         android:textSize="@dimen/dialog_title_text_size" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dialog_item_margin_side"
+        android:layout_height="@dimen/dialog_title_height"
         android:layout_marginTop="@dimen/dialog_item_margin_top"
-        android:layout_marginEnd="@dimen/dialog_item_margin_side">
-
-        <EditText
-            android:id="@+id/edt_rename"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/pls_enter_your_name" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:gravity="center"
+        android:text="@string/exit_game_confirm"
+        android:textColor="@color/normal_content_text_color"
+        android:textSize="@dimen/dialog_title_text_size" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,24 +36,26 @@
         android:paddingBottom="@dimen/dialog_item_margin_top">
 
         <Button
-            android:id="@+id/btn_cancel"
+            android:id="@+id/btn_no"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_blue_rectangle_20"
-            android:text="@string/cancel"
+            android:text="@string/no"
             android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
         <Button
-            android:id="@+id/btn_update"
+            android:id="@+id/btn_yes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_blue_rectangle_20"
-            android:text="@string/update"
+            android:text="@string/yes"
             android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

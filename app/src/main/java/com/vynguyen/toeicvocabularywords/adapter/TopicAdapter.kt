@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.vynguyen.toeicvocabularywords.R
-import com.vynguyen.toeicvocabularywords.interfa.TopicItemClickListener
+import com.vynguyen.toeicvocabularywords.interfaces.TopicItemClickListener
 import com.vynguyen.toeicvocabularywords.data.Topic
 import com.vynguyen.toeicvocabularywords.utils.ColorHelper
 import java.lang.ref.WeakReference

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="30dp"
+        android:paddingEnd="15dp">
+
+        <TextView
+            android:id="@+id/tv_v_1"
+            style="@style/connect_words_game_item_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:id="@+id/tv_v_2"
+            style="@style/connect_words_game_item_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:id="@+id/tv_v_3"
+            style="@style/connect_words_game_item_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:id="@+id/tv_v_4"
+            style="@style/connect_words_game_item_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="15dp"
+        android:paddingEnd="30dp">
+
+        <TextView
+            android:id="@+id/tv_e_1"
+            style="@style/connect_words_game_item_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:id="@+id/tv_e_2"
+            style="@style/connect_words_game_item_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:id="@+id/tv_e_3"
+            style="@style/connect_words_game_item_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:id="@+id/tv_e_4"
+            style="@style/connect_words_game_item_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+    </LinearLayout>
+
+</LinearLayout>

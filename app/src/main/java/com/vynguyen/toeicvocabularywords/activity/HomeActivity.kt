@@ -13,7 +13,7 @@ import com.vynguyen.toeicvocabularywords.constant.IntentConstant
 import com.vynguyen.toeicvocabularywords.data.Topic
 import com.vynguyen.toeicvocabularywords.data.TopicData
 import com.vynguyen.toeicvocabularywords.databinding.ActivityHomeBinding
-import com.vynguyen.toeicvocabularywords.interfa.TopicItemClickListener
+import com.vynguyen.toeicvocabularywords.interfaces.TopicItemClickListener
 
 
 class HomeActivity : BaseActivity(), TopicItemClickListener {

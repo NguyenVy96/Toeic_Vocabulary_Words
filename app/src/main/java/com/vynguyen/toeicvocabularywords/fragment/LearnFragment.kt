@@ -14,7 +14,7 @@ import com.vynguyen.toeicvocabularywords.data.TopicData
 import com.vynguyen.toeicvocabularywords.data.VocabularyData
 import com.vynguyen.toeicvocabularywords.data.Vocabulary
 import com.vynguyen.toeicvocabularywords.adapter.VocabularyAdapter
-import com.vynguyen.toeicvocabularywords.interfa.VocabularyItemClickListener
+import com.vynguyen.toeicvocabularywords.interfaces.VocabularyItemClickListener
 
 
 class LearnFragment : Fragment(), VocabularyItemClickListener {

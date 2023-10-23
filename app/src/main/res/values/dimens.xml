@@ -29,4 +29,5 @@
     <dimen name="dialog_title_height">40dp</dimen>
     <dimen name="dialog_layout_margin_side">30dp</dimen>
     <dimen name="dialog_title_text_size">18sp</dimen>
+    <dimen name="connect_words_game_item_text_size">18sp</dimen>
 </resources>

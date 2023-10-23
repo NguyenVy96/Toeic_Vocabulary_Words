@@ -9,7 +9,8 @@ object ColorHelper {
     fun changeColorItemClick(
         item: View,
         drawableOn: Drawable,
-        drawableOff: Drawable
+        drawableOff: Drawable,
+        duration: Int = 1500
     ) {
         val backgrounds = arrayOfNulls<Drawable>(2)
         backgrounds[0] = drawableOn
@@ -18,6 +19,6 @@ object ColorHelper {
         val transitionDrawable = TransitionDrawable(backgrounds)
         transitionDrawable.isCrossFadeEnabled = true
         item.background = transitionDrawable
-        transitionDrawable.startTransition(1500)
+        transitionDrawable.startTransition(duration)
     }
 }

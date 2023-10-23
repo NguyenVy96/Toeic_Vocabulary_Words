@@ -1,4 +1,4 @@
-package com.vynguyen.toeicvocabularywords.interfa
+package com.vynguyen.toeicvocabularywords.interfaces
 
 import com.vynguyen.toeicvocabularywords.data.Topic
 

@@ -16,4 +16,17 @@
         <item name="android:textSize">@dimen/main_title_text_size</item>
     </style>
 
+    <style name="connect_words_game_item_text_style">
+        <item name="android:background">@drawable/rounded_rectangle_item_20</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/normal_content_text_color</item>
+        <item name="android:textSize">@dimen/connect_words_game_item_text_size</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:text">"Temp text"</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:paddingEnd">5dp</item>
+        <item name="android:paddingStart">5dp</item>
+    </style>
+
 </resources>
