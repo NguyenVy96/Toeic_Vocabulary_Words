@@ -14,6 +14,7 @@ import com.vynguyen.toeicvocabularywords.data.TopicData
 import com.vynguyen.toeicvocabularywords.data.VocabularyData
 import com.vynguyen.toeicvocabularywords.data.Vocabulary
 import com.vynguyen.toeicvocabularywords.adapter.VocabularyAdapter
+import com.vynguyen.toeicvocabularywords.databinding.FragmentLearnBinding
 import com.vynguyen.toeicvocabularywords.interfaces.VocabularyItemClickListener
 
 
@@ -21,6 +22,7 @@ class LearnFragment : Fragment(), VocabularyItemClickListener {
 
     private lateinit var context: Context
     private var mediaPlayer: MediaPlayer? = null
+    private lateinit var viewBinding: FragmentLearnBinding
     private var rcvAdapter: VocabularyAdapter? = null
 
     override fun onCreateView(
@@ -31,15 +33,16 @@ class LearnFragment : Fragment(), VocabularyItemClickListener {
         // get context from activity instead of transfer via parameter constructor to avoid FC when
         // change theme
         context = activity?.applicationContext!!
-        val rootView = inflater.inflate(R.layout.fragment_learn, container, false)
+
+        viewBinding = FragmentLearnBinding.inflate(layoutInflater)
         val listData = VocabularyData.getVocabularyData(TopicData.getLearningTopic())
         rcvAdapter = VocabularyAdapter(context, listData)
         rcvAdapter?.addClickListener(this)
-        val rcvVocabulary = rootView.findViewById<RecyclerView>(R.id.rcv_vocabulary)
+        val rcvVocabulary = viewBinding.rcvVocabulary
         rcvVocabulary.adapter = rcvAdapter
         rcvVocabulary.layoutManager = LinearLayoutManager(context)
 
-        return rootView
+        return viewBinding.root
     }
 
     override fun onVocabularyItemClick(vocabulary: Vocabulary) {

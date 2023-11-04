@@ -6,7 +6,8 @@ interface ConnectWordsGameInterface {
 
     fun setSelectedColor(onIdx: Int, offIdx: Int)
     fun correctAnswer(vIdx: Int, eIdx: Int)
-    fun wrongAnswer(wrongCount: Int, vIdx: Int, eIdx: Int)
+    fun wrongAnswer(starScore: Int, vIdx: Int, eIdx: Int)
     fun loadNewSession(vData: MutableList<Vocabulary>, eData: MutableList<Vocabulary>, session: Int)
-    fun saveData(wrongCount: Int)
+    fun saveData(starScore: Int)
+    fun showResultDialog(starScore: Int)
 }

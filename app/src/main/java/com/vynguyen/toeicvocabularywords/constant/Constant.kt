@@ -17,8 +17,8 @@ class Constant {
         const val APP_PREFERENCE_KEY = "app_preference_key"
         const val TOPIC_KEY = "topic_key"
         const val USER_NAME_KEY = "user_name_key"
-        const val CONNECT_WORDS_GAME_WRONG_COUNT_KEY = "connect_words_game_wrong_count_key"
-        const val CONNECT_WORDS_GAME_PERCENT_SCORE = "connect_words_game_percent_score"
+        const val CONNECT_WORDS_GAME_STAR_SCORE_KEY = "connect_words_game_score_key"
+        const val CHOICE_WORDS_GAME_STAR_SCORE_KEY = "choice_words_game_score_key"
 
         // connect words game
         const val DIV = 10
@@ -32,7 +32,7 @@ class Constant {
         const val E2 = 11
         const val E3 = 12
         const val E4 = 13
-        const val SESSION_NUMBER = 2
-        const val NOT_LEARN = -1
+        const val SESSION_NUMBER = 1
+        const val NOT_LEARN = 0
     }
 }

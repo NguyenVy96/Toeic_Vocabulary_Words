@@ -1,14 +1,15 @@
 package com.vynguyen.toeicvocabularywords.activity
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.vynguyen.toeicvocabularywords.R
 import com.vynguyen.toeicvocabularywords.constant.Constant
+import com.vynguyen.toeicvocabularywords.data.TopicData
 import com.vynguyen.toeicvocabularywords.data.Vocabulary
 import com.vynguyen.toeicvocabularywords.databinding.ActivityConnectWordsGameBinding
 import com.vynguyen.toeicvocabularywords.databinding.ConnectWordsGameBodyLayoutBinding
@@ -17,6 +18,8 @@ import com.vynguyen.toeicvocabularywords.interfaces.ConnectWordsGameInterface
 import com.vynguyen.toeicvocabularywords.presenter.ConnectWordsGamePresenter
 import com.vynguyen.toeicvocabularywords.utils.ColorHelper
 import com.vynguyen.toeicvocabularywords.utils.DialogHelper
+import com.vynguyen.toeicvocabularywords.utils.PrefHelper
+import com.vynguyen.toeicvocabularywords.utils.Utils
 import com.vynguyen.toeicvocabularywords.utils.Words
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -108,7 +111,14 @@ class ConnectWordsGameActivity : AppCompatActivity(), ConnectWordsGameInterface 
     }
 
     override fun correctAnswer(vIdx: Int, eIdx: Int) {
-        doOnCorrect(vIdx, eIdx)
+        val scope = CoroutineScope(Dispatchers.Main)
+        scope.launch {
+            setClickableAllWords(false)
+            delay(500)
+            onCorrectAnswer(vIdx, eIdx)
+            setClickableAllWords(true)
+            presenter.loadNewSession()
+        }
     }
 
     private fun onCorrectAnswer(vIdx: Int, eIdx: Int) {
@@ -117,17 +127,23 @@ class ConnectWordsGameActivity : AppCompatActivity(), ConnectWordsGameInterface 
         getView(eIdx)?.visibility = View.GONE
     }
 
-    override fun wrongAnswer(wrongCount: Int, vIdx: Int, eIdx: Int) {
-        doOnWrong(wrongCount, vIdx, eIdx)
+    override fun wrongAnswer(starScore: Int, vIdx: Int, eIdx: Int) {
+        val scope = CoroutineScope(Dispatchers.Main)
+        scope.launch {
+            setClickableAllWords(false)
+            delay(500)
+            onWrongAnswer(starScore, vIdx, eIdx)
+            setClickableAllWords(true)
+        }
     }
 
-    private fun onWrongAnswer(wrongCount: Int, vIdx: Int, eIdx: Int) {
-        when (wrongCount) {
-            1 -> headerBinding.imgStart1.visibility = View.INVISIBLE
-            2 -> headerBinding.imgStart2.visibility = View.INVISIBLE
-            3 -> headerBinding.imgStart3.visibility = View.INVISIBLE
-            4 -> headerBinding.imgStart4.visibility = View.INVISIBLE
-            5 -> headerBinding.imgStart5.visibility = View.INVISIBLE
+    private fun onWrongAnswer(starScore: Int, vIdx: Int, eIdx: Int) {
+        when (starScore) {
+            0 -> headerBinding.imgStart1.visibility = View.INVISIBLE
+            1 -> headerBinding.imgStart2.visibility = View.INVISIBLE
+            2 -> headerBinding.imgStart3.visibility = View.INVISIBLE
+            3 -> headerBinding.imgStart4.visibility = View.INVISIBLE
+            4 -> headerBinding.imgStart5.visibility = View.INVISIBLE
         }
         resetSelectionColor(vIdx, eIdx)
     }
@@ -142,13 +158,34 @@ class ConnectWordsGameActivity : AppCompatActivity(), ConnectWordsGameInterface 
         updateSession(session)
     }
 
-    override fun saveData(wrongCount: Int) {
-        val sharedPref = getSharedPreferences(Constant.APP_PREFERENCE_KEY, Context.MODE_PRIVATE)
-        with(sharedPref.edit()) {
-            putInt(Constant.CONNECT_WORDS_GAME_WRONG_COUNT_KEY, wrongCount)
-            apply()
+    override fun saveData(starScore: Int) {
+        PrefHelper.setConnectWordsGameScore(TopicData.getLearningTopic(), starScore)
+        Utils.getCurTopicScoreLiveData().value =
+            PrefHelper.getTotalScore(TopicData.getLearningTopic())
+    }
+
+    override fun showResultDialog(starScore: Int) {
+        val dialog = DialogHelper.getDialog(this, R.layout.dialog_game_result)
+        val imgStartScore = dialog.findViewById<ImageView>(R.id.img_star_score)
+        imgStartScore.setImageResource(Utils.getStarScoreImgResource(starScore))
+
+        val btnConfirm = dialog.findViewById<Button>(R.id.btn_confirm)
+        btnConfirm.setOnClickListener {
+            dialog.dismiss()
         }
-        finish()
+
+        val scope = CoroutineScope(Dispatchers.Main)
+        val job = scope.launch {
+            delay(5000)
+            dialog.dismiss()
+        }
+        job.start()
+
+        dialog.setOnDismissListener {
+            job.cancel()
+            finish()
+        }
+        dialog.show()
     }
 
     @SuppressLint("SetTextI18n")
@@ -199,27 +236,6 @@ class ConnectWordsGameActivity : AppCompatActivity(), ConnectWordsGameInterface 
         bodyBinding.tvE4.isClickable = canClick
     }
 
-    private fun doOnCorrect(vIdx: Int, eIdx: Int) {
-        val scope = CoroutineScope(Dispatchers.Main)
-        scope.launch {
-            setClickableAllWords(false)
-            delay(500)
-            onCorrectAnswer(vIdx, eIdx)
-            setClickableAllWords(true)
-            presenter.loadNewSession()
-        }
-    }
-
-    private fun doOnWrong(wCnt: Int, vIdx: Int, eIdx: Int) {
-        val scope = CoroutineScope(Dispatchers.Main)
-        scope.launch {
-            setClickableAllWords(false)
-            delay(500)
-            onWrongAnswer(wCnt, vIdx, eIdx)
-            setClickableAllWords(true)
-        }
-    }
-
     private fun showExitGameDialog() {
         val dialog = DialogHelper.getDialog(this, R.layout.dialog_exit_game)
 
@@ -243,5 +259,9 @@ class ConnectWordsGameActivity : AppCompatActivity(), ConnectWordsGameInterface 
         if (false) {
             super.onBackPressed()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }

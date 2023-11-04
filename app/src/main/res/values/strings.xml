@@ -30,5 +30,7 @@
     <string name="exit_game_confirm">Do you want to exit the game?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="result">Result</string>
+    <string name="confirm">Confirm</string>
 
 </resources>

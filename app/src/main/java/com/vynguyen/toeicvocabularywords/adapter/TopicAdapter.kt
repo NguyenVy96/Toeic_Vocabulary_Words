@@ -14,13 +14,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vynguyen.toeicvocabularywords.R
 import com.vynguyen.toeicvocabularywords.interfaces.TopicItemClickListener
 import com.vynguyen.toeicvocabularywords.data.Topic
+import com.vynguyen.toeicvocabularywords.databinding.ActivityConnectWordsGameBinding
 import com.vynguyen.toeicvocabularywords.utils.ColorHelper
+import com.vynguyen.toeicvocabularywords.utils.PrefHelper
 import java.lang.ref.WeakReference
 
 
 class TopicAdapter(
     private val context: Context,
-    private val listData: MutableList<Topic>?
+    private val listData: MutableList<Topic>?,
 ) :
     RecyclerView.Adapter<TopicAdapter.TopicViewHolder>() {
 
@@ -71,12 +73,15 @@ class TopicAdapter(
 
         val topic = listData[position]
         val res = context.resources
+        val score = PrefHelper.getTotalScore(position)
+
         holder.imgTopic.setImageResource(topic.imgResource)
         holder.tvTopicName.text = res.getString(R.string.topic) + " " + position + ": " + topic.name
         holder.tvVoNumber.text =
             res.getString(R.string.vocabulary) + ": " + topic.vocabularyNumber
-        holder.tvScore.text = topic.score.toString() + "%"
-        holder.pgbScore.progress = topic.score
+        holder.tvScore.text = (score * 10).toString() + "%"
+        holder.pgbScore.max = 10
+        holder.pgbScore.progress = score
         holder.itemLayout.setOnClickListener {
             itemClickListener.get()?.onTopicItemClick(topic)
             ColorHelper.changeColorItemClick(it, drawableOn!!, drawableOff!!)

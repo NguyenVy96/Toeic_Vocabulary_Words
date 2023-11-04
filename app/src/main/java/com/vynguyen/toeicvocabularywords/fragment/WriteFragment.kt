@@ -15,18 +15,13 @@ import com.vynguyen.toeicvocabularywords.R
 import com.vynguyen.toeicvocabularywords.data.TopicData
 import com.vynguyen.toeicvocabularywords.data.Vocabulary
 import com.vynguyen.toeicvocabularywords.data.VocabularyData
+import com.vynguyen.toeicvocabularywords.databinding.FragmentWriteBinding
 import com.vynguyen.toeicvocabularywords.utils.Words
 
 
 class WriteFragment : Fragment() {
 
-    private lateinit var rootView: View
-    private lateinit var imgResult: ImageView
-    private lateinit var imgSpeaker: ImageView
-    private lateinit var tvMean: TextView
-    private lateinit var tvAnswer: TextView
-    private lateinit var edtWrite: EditText
-    private lateinit var btnSubmit: ToggleButton
+    private lateinit var viewBinding: FragmentWriteBinding
 
     private var listData: MutableList<Vocabulary>? = null
     private var mediaPlayer: MediaPlayer? = null
@@ -39,20 +34,10 @@ class WriteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        rootView = inflater.inflate(R.layout.fragment_write, container, false)
-        initView()
+        viewBinding = FragmentWriteBinding.inflate(layoutInflater)
         showExam()
 
-        return rootView
-    }
-
-    private fun initView() {
-        imgResult = rootView.findViewById(R.id.img_result)
-        imgSpeaker = rootView.findViewById(R.id.img_speaker)
-        tvMean = rootView.findViewById(R.id.tv_mean)
-        tvAnswer = rootView.findViewById(R.id.tv_answer)
-        edtWrite = rootView.findViewById(R.id.edt_write)
-        btnSubmit = rootView.findViewById(R.id.btn_submit)
+        return viewBinding.root
     }
 
     private fun getRandomVocabulary(): Vocabulary {
@@ -70,9 +55,9 @@ class WriteFragment : Fragment() {
     }
 
     private fun showExam() {
-        imgResult.visibility = View.INVISIBLE
-        tvAnswer.visibility = View.GONE
-        edtWrite.setText("")
+        viewBinding.imgResult.visibility = View.INVISIBLE
+        viewBinding.tvAnswer.visibility = View.GONE
+        viewBinding.edtWrite.setText("")
 
         val vocabulary = getRandomVocabulary()
 
@@ -85,10 +70,10 @@ class WriteFragment : Fragment() {
     }
 
     private fun showSpeakerType(vocabulary: Vocabulary) {
-        imgSpeaker.visibility = View.VISIBLE
-        tvMean.visibility = View.INVISIBLE
+        viewBinding.imgSpeaker.visibility = View.VISIBLE
+        viewBinding.tvMean.visibility = View.INVISIBLE
 
-        imgSpeaker.setOnClickListener {
+        viewBinding.imgSpeaker.setOnClickListener {
             if (mediaPlayer != null && mediaPlayer!!.isPlaying) {
                 mediaPlayer!!.pause()
             }
@@ -98,38 +83,38 @@ class WriteFragment : Fragment() {
     }
 
     private fun showMeanType(vocabulary: Vocabulary) {
-        imgSpeaker.visibility = View.INVISIBLE
-        tvMean.visibility = View.VISIBLE
+        viewBinding.imgSpeaker.visibility = View.INVISIBLE
+        viewBinding.tvMean.visibility = View.VISIBLE
 
-        tvMean.text = Words.getStringFromList(vocabulary.mean)
+        viewBinding.tvMean.text = Words.getStringFromList(vocabulary.mean)
     }
 
     private fun showResult(vocabulary: Vocabulary) {
-        val userAnswer = edtWrite.text.toString().trim()
+        val userAnswer = viewBinding.edtWrite.text.toString().trim()
         if (userAnswer.isEmpty()) {
             Toast.makeText(context, R.string.pls_enter_text, Toast.LENGTH_SHORT).show()
-            btnSubmit.isChecked = false
+            viewBinding.btnSubmit.isChecked = false
             return
         }
 
         if (userAnswer == vocabulary.word) {
-            imgResult.setImageResource(R.drawable.ic_correct)
+            viewBinding.imgResult.setImageResource(R.drawable.ic_correct)
             mediaPlayer = MediaPlayer.create(context, R.raw.correct_answer)
             mediaPlayer!!.start()
         } else {
-            imgResult.setImageResource(R.drawable.ic_wrong)
-            tvAnswer.text = vocabulary.word
-            tvAnswer.visibility = View.VISIBLE
+            viewBinding.imgResult.setImageResource(R.drawable.ic_wrong)
+            viewBinding.tvAnswer.text = vocabulary.word
+            viewBinding.tvAnswer.visibility = View.VISIBLE
             mediaPlayer = MediaPlayer.create(context, R.raw.wrong_answer)
             mediaPlayer!!.start()
         }
 
-        imgResult.visibility = View.VISIBLE
+        viewBinding.imgResult.visibility = View.VISIBLE
     }
 
     private fun setupSubmitButton(vocabulary: Vocabulary) {
-        btnSubmit.setOnClickListener {
-            if (btnSubmit.isChecked) {
+        viewBinding.btnSubmit.setOnClickListener {
+            if (viewBinding.btnSubmit.isChecked) {
                 showResult(vocabulary)
             }
             else {

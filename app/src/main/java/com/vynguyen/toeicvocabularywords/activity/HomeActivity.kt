@@ -14,9 +14,11 @@ import com.vynguyen.toeicvocabularywords.data.Topic
 import com.vynguyen.toeicvocabularywords.data.TopicData
 import com.vynguyen.toeicvocabularywords.databinding.ActivityHomeBinding
 import com.vynguyen.toeicvocabularywords.interfaces.TopicItemClickListener
+import com.vynguyen.toeicvocabularywords.utils.PrefHelper
+import com.vynguyen.toeicvocabularywords.utils.Utils
 
 
-class HomeActivity : BaseActivity(), TopicItemClickListener {
+class HomeActivity() : BaseActivity(), TopicItemClickListener {
 
     private lateinit var viewBinding: ActivityHomeBinding
 
@@ -30,6 +32,7 @@ class HomeActivity : BaseActivity(), TopicItemClickListener {
         setContentView(viewBinding.root)
 
         onCreate()
+        PrefHelper.initAppSharedPref(this)
         setupRecycleView()
     }
 
@@ -41,7 +44,8 @@ class HomeActivity : BaseActivity(), TopicItemClickListener {
 
     private fun setupRecycleView() {
         topicListData = TopicData.getTopicData()
-        topicAdapter = TopicAdapter(applicationContext, topicListData)
+        topicAdapter =
+            TopicAdapter(applicationContext, topicListData)
         topicAdapter?.addItemCLickListener(this)
         viewBinding.rcvTopic.layoutManager = LinearLayoutManager(this)
         viewBinding.rcvTopic.adapter = topicAdapter
@@ -51,14 +55,24 @@ class HomeActivity : BaseActivity(), TopicItemClickListener {
         val intent = Intent(IntentConstant.LEARN_ACTIVITY)
         intent.putExtra(Constant.TOPIC_KEY, topic.id)
         TopicData.setLearningTopic(topic.id)
+        observerScore()
         startActivity(intent)
+    }
+
+    private fun observerScore() {
+        val curTopic = TopicData.getLearningTopic()
+        val curScore = Utils.getCurTopicScoreLiveData()
+        curScore.value = PrefHelper.getTotalScore(curTopic)
+        curScore.observe(this) {
+            topicAdapter?.notifyItemChanged(curTopic)
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         clearData()
     }
-    
+
     private fun clearData() {
         topicListData = null
         topicAdapter?.onDestroy()

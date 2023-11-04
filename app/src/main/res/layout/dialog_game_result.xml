@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dialog_layout_margin_side"
+    android:layout_marginEnd="@dimen/dialog_layout_margin_side"
+    android:paddingBottom="20dp"
+    android:gravity="center"
+    android:background="@drawable/rounded_rectangle_item_20"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dialog_title_height"
+        android:background="@drawable/rounded_blue_rectangle_tl_tr_20"
+        android:gravity="center"
+        android:text="@string/result"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dialog_title_text_size" />
+
+    <ImageView
+        android:id="@+id/img_star_score"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="@dimen/dialog_item_margin_top"
+        android:gravity="center"
+        android:src="@drawable/ic_star_5"
+        android:scaleType="fitCenter" />
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:background="@drawable/rounded_blue_rectangle_20"
+        android:text="@string/confirm"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>

@@ -15,7 +15,7 @@ import java.lang.ref.WeakReference
 class ConnectWordsGamePresenter(private val context: Context) {
 
     private var session: Int = 0
-    private var wrongCount = 0
+    private var starScore = 5
     private var remainingItem = 0
     private var vIndex: Int = NOT_SELECTED
     private var eIndex: Int = NOT_SELECTED
@@ -71,9 +71,9 @@ class ConnectWordsGamePresenter(private val context: Context) {
     }
 
     private fun wrongAnswer() {
-        wrongCount++
+        starScore--
         SoundHelper.playWrongSound(context)
-        listener.get()?.wrongAnswer(wrongCount, vIndex, eIndex + 10)
+        listener.get()?.wrongAnswer(starScore, vIndex, eIndex + 10)
         resetSelection()
     }
 
@@ -97,7 +97,7 @@ class ConnectWordsGamePresenter(private val context: Context) {
         remainingItem = 4
         session++
         if (session > SESSION_NUMBER) {
-            listener.get()?.saveData(wrongCount)
+            listener.get()?.saveData(starScore)
             showResultDialog()
             return
         }
@@ -128,6 +128,6 @@ class ConnectWordsGamePresenter(private val context: Context) {
     }
 
     private fun showResultDialog() {
-
+        listener.get()?.showResultDialog(starScore)
     }
 }
