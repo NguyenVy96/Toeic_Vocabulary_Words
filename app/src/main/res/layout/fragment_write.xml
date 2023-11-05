@@ -1,90 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/default_bg_color"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:paddingTop="@dimen/fragment_write_layout_padding_top"
-    tools:context=".fragment.WriteFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
-        android:id="@+id/img_result"
-        android:layout_width="@dimen/practice_result_img_size"
-        android:layout_height="@dimen/practice_result_img_size"
-        android:contentDescription="@string/topic_img_description"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_correct"
-        android:visibility="invisible" />
+    <data>
 
-    <FrameLayout
-        android:id="@+id/layout_exam_type"
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.vynguyen.toeicvocabularywords.viewmodel.WriteFragmentViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fragment_write_item_margin_top">
+        android:layout_height="match_parent"
+        android:background="@color/default_bg_color"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/fragment_write_layout_padding_top">
+
+        <ImageView
+            android:id="@+id/img_result"
+            android:layout_width="@dimen/practice_result_img_size"
+            android:layout_height="@dimen/practice_result_img_size"
+            android:contentDescription="@string/topic_img_description"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_correct"
+            android:visibility="@{viewModel.isShowImgResult ? View.VISIBLE : View.INVISIBLE}" />
+
+        <FrameLayout
+            android:id="@+id/layout_exam_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_write_item_margin_top">
+
+            <TextView
+                android:id="@+id/tv_mean"
+                style="@style/normal_content_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{viewModel.tvMean}"
+                android:textSize="@dimen/practice_text_size"
+                android:visibility="@{viewModel.isShowTvMean ? View.VISIBLE : View.INVISIBLE}" />
+
+            <ImageView
+                android:id="@+id/img_speaker"
+                android:layout_width="@dimen/practice_sound_icon_size"
+                android:layout_height="@dimen/practice_sound_icon_size"
+                android:layout_gravity="center"
+                android:contentDescription="@string/speaker"
+                android:src="@drawable/ic_speaker"
+                android:visibility="@{viewModel.isShowImgSpeaker ? View.VISIBLE : View.INVISIBLE}" />
+
+        </FrameLayout>
 
         <TextView
-            android:id="@+id/tv_mean"
+            android:id="@+id/tv_correct_answer"
             style="@style/normal_content_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Temp string"
+            android:layout_marginTop="@dimen/fragment_write_item_margin_top"
+            android:text="@{viewModel.tvCorrectAnswer}"
+            android:textColor="@color/primary_color"
             android:textSize="@dimen/practice_text_size"
-            android:visibility="invisible" />
+            android:visibility="@{viewModel.isShowCorrectAnswer ? View.VISIBLE : View.GONE}" />
 
-        <ImageView
-            android:id="@+id/img_speaker"
-            android:layout_width="@dimen/practice_sound_icon_size"
-            android:layout_height="@dimen/practice_sound_icon_size"
-            android:layout_gravity="center"
-            android:contentDescription="@string/speaker"
-            android:src="@drawable/ic_speaker" />
-
-    </FrameLayout>
-
-    <TextView
-        android:id="@+id/tv_answer"
-        style="@style/normal_content_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fragment_write_item_margin_top"
-        android:text="Temp string"
-        android:textColor="@color/primary_color"
-        android:textSize="@dimen/practice_text_size"
-        android:visibility="gone" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/practice_edt_margin_side"
-        android:layout_marginTop="@dimen/fragment_write_item_margin_top"
-        android:layout_marginEnd="@dimen/practice_edt_margin_side"
-        android:elevation="@dimen/toolbar_elevation">
-
-        <EditText
-            android:id="@+id/edt_write"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/pls_enter_text"
-            android:textAlignment="center" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/practice_edt_margin_side"
+            android:layout_marginTop="@dimen/fragment_write_item_margin_top"
+            android:layout_marginEnd="@dimen/practice_edt_margin_side"
+            android:elevation="@dimen/toolbar_elevation"
+            android:hint="@string/pls_enter_text">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/edt_user_answer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@={viewModel.userAnswer}"
+                android:textAlignment="center" />
 
-    <ToggleButton
-        android:id="@+id/btn_submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fragment_write_item_margin_top"
-        android:background="@drawable/rounded_blue_rectangle_20"
-        android:elevation="@dimen/toolbar_elevation"
-        android:paddingStart="@dimen/practice_btn_padding_side"
-        android:paddingEnd="@dimen/practice_btn_padding_side"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textOff="@string/submit"
-        android:textOn="@string/next"
-        android:textSize="@dimen/practice_btn_text_size" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+        <ToggleButton
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_write_item_margin_top"
+            android:background="@drawable/rounded_blue_rectangle_20"
+            android:checked="@{viewModel.isBtnChecked}"
+            android:elevation="@dimen/toolbar_elevation"
+            android:onClick="@{() -> viewModel.onBtnSubmitClick()}"
+            android:paddingStart="@dimen/practice_btn_padding_side"
+            android:paddingEnd="@dimen/practice_btn_padding_side"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textOff="@string/submit"
+            android:textOn="@string/next"
+            android:textSize="@dimen/practice_btn_text_size" />
+
+    </LinearLayout>
+</layout>

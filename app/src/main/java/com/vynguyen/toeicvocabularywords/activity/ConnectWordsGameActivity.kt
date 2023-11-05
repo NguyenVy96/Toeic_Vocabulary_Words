@@ -19,6 +19,7 @@ import com.vynguyen.toeicvocabularywords.presenter.ConnectWordsGamePresenter
 import com.vynguyen.toeicvocabularywords.utils.ColorHelper
 import com.vynguyen.toeicvocabularywords.utils.DialogHelper
 import com.vynguyen.toeicvocabularywords.utils.PrefHelper
+import com.vynguyen.toeicvocabularywords.utils.SoundHelper
 import com.vynguyen.toeicvocabularywords.utils.Utils
 import com.vynguyen.toeicvocabularywords.utils.Words
 import kotlinx.coroutines.CoroutineScope
@@ -165,6 +166,8 @@ class ConnectWordsGameActivity : AppCompatActivity(), ConnectWordsGameInterface 
     }
 
     override fun showResultDialog(starScore: Int) {
+        SoundHelper.playClapSound(this)
+
         val dialog = DialogHelper.getDialog(this, R.layout.dialog_game_result)
         val imgStartScore = dialog.findViewById<ImageView>(R.id.img_star_score)
         imgStartScore.setImageResource(Utils.getStarScoreImgResource(starScore))
